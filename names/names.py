@@ -27,10 +27,15 @@ print (f"runtime: {end_time - start_time} seconds")
 
 # stretch
 
+# import unicodedata
+
+# def NFD(s):
+#         return unicodedata.normalize('NFD', s)
+
 # def merge(arrA, arrB):
 #     merged_arr = []
 #     while len(arrA) > 0 and len(arrB) > 0:
-#       if len(arrA[0]) < len(arrB[0]):
+#       if NFD(arrA[0]) < NFD(arrB[0]):
 #         merged_arr.append(arrA[0])
 #         arrA.pop(0)
 #       else:
@@ -50,8 +55,8 @@ print (f"runtime: {end_time - start_time} seconds")
 #     return arr
 #   else:
 #     midpoint = math.floor(len(arr) / 2)
-#     left = arr[0:midpoint]
-#     right = arr[midpoint:len(arr)]
+#     left = arr[:midpoint]
+#     right = arr[midpoint:]
 #     left = merge_sort(left)
 #     right = merge_sort(right)
 #     return merge(left, right)
@@ -60,21 +65,14 @@ print (f"runtime: {end_time - start_time} seconds")
 
 # def binary_search(arr, target):
 #         while len(arr) > 1:
-#                 midpoint = len(arr) // 2
-#                 if len(arr[midpoint]) == len(target):
-#                         # if len(arr[midpoint - 1]) < len(target):
-#                         #         arr = arr[midpoint:]
-#                         # elif len(arr[midpoint + 1]) > len(target):
-#                         #         arr = arr[:midpoint+1]
-#                         for name in arr:
-#                                 if name == target:
-#                                         return True
-#                         return False
+#                 midpoint = math.floor(len(arr) / 2)
+#                 if NFD(arr[midpoint]) == NFD(target):
+#                         return True
 #                 else:
-#                         if len(arr[midpoint]) > len(target):
-#                                 arr = arr[0:midpoint]
-#                         elif len(arr[midpoint]) < len(target):
-#                                 arr = arr[midpoint: len(arr)]
+#                         if NFD(target) > NFD(arr[midpoint]):
+#                                 arr = arr[midpoint:]
+#                         elif NFD(target) < NFD(arr[midpoint]):
+#                                 arr = arr[:midpoint]
 #         if arr[0] == target:
 #                 return True
 #         else:
