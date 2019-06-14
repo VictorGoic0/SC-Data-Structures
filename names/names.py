@@ -27,15 +27,10 @@ print (f"runtime: {end_time - start_time} seconds")
 
 # stretch
 
-# import unicodedata
-
-# def NFD(s):
-#         return unicodedata.normalize('NFD', s)
-
 # def merge(arrA, arrB):
 #     merged_arr = []
 #     while len(arrA) > 0 and len(arrB) > 0:
-#       if NFD(arrA[0]) < NFD(arrB[0]):
+#       if arrA[0] < arrB[0]:
 #         merged_arr.append(arrA[0])
 #         arrA.pop(0)
 #       else:
@@ -62,27 +57,29 @@ print (f"runtime: {end_time - start_time} seconds")
 #     return merge(left, right)
 
 # names_2_sorted = merge_sort(names_2)
-
-# def binary_search(arr, target):
-#         while len(arr) > 1:
-#                 midpoint = math.floor(len(arr) / 2)
-#                 if NFD(arr[midpoint]) == NFD(target):
-#                         return True
-#                 else:
-#                         if NFD(target) > NFD(arr[midpoint]):
-#                                 arr = arr[midpoint:]
-#                         elif NFD(target) < NFD(arr[midpoint]):
-#                                 arr = arr[:midpoint]
-#         if arr[0] == target:
-#                 return True
-#         else:
-#                 return False
         
+# def binary_search(arr, target):
+# 	    left = 0
+# 	    right = len(arr) - 1
+# 	    found = False
+	
+# 	    while left <= right and not found:
+# 	        midpoint = (left + right) // 2
+# 	        if arr[midpoint] == target:
+# 	            found = True
+# 	        else:
+# 	            if target < arr[midpoint]:
+# 	                right = midpoint-1
+# 	            else:
+# 	                left = midpoint+1
+	
+# 	    return found
+
 # for name in names_1:
 #         if binary_search(names_2, name):
 #                 duplicates.append(name)
 
-# end_time = time.time()
-# print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
-# print (f"runtime: {end_time - start_time} seconds")
+end_time = time.time()
+print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
+print (f"runtime: {end_time - start_time} seconds")
 
