@@ -76,7 +76,7 @@ print (f"runtime: {end_time - start_time} seconds")
 # 	    return found
 
 # for name in names_1:
-#         if binary_search(names_2, name):
+#         if binary_search(names_2_sorted, name):
 #                 duplicates.append(name)
 
 end_time = time.time()
